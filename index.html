@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustQ Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(orange, white, green);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(rgb(142, 142, 223), orange, grey);
+    
+}
+
+.card-title {
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.input-group-text {
+    background-color: white;
+    color: #fff;
+}
+
+#send-otp {
+    width: auto;
+    margin-top: 10px;
+    background-color: grey;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">CustQ</h1>
+                        <p class="text-center">Hello!!</p>
+                        <form id="login-form">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td class="text-left align-middle"><label for="phone-number">PhoneNumber</label></td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">
+                                                    <select style="border-color: white;">
+                                                        <option>+91</option>
+                                                        <option>+44</option>
+                                                        <option>+1</option>
+                                                    </select>    
+                                                </span>
+                                            </div>
+                                            <input type="tel" pattern="[0-9]{10}" class="form-control" id="phone-number" placeholder="xxxxx - xxxxx" required>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td colspan="2" align="center"><button type="button" class="btn btn-primary btn-block" id="send-otp">Send OTP</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="otp">OTP</label></td>
+                                    <td><input type="text" pattern="[0-9]{6}" class="form-control" id="otp" placeholder="123456" required></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input type="checkbox" class="form-check-input" id="terms" required>
+                                            <label class="form-check-label" for="terms">Agree to terms and conditions. Our <a href="#">Privacy Policy</a></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" align="center"><button type="submit" class="btn btn-success btn-block" style="width: auto; background-color: rgb(56, 61, 61); border: solid 1px rgb(123, 228, 179);">Login</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    document.getElementById('send-otp').addEventListener('click', function() {
+    const phoneNumber = document.getElementById('phone-number').value;
+
+    if (phoneNumber.length == 10) {
+            alert(`OTP sent to ${phoneNumber}`);
+        }
+        else {
+            alert(`Please enter valid phone number`)
+        }
+
+});
+
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const phoneNumber = document.getElementById('phone-number').value;
+    const otp = document.getElementById('otp').value;
+    const terms = document.getElementById('terms').checked;
+
+    // Simulate OTP verification
+    if (otp.length == 6 && terms) {
+        window.location.href="home.html";
+    } else {
+        alert('Invalid OTP or terms not accepted');
+    }
+});
+ </script>
+</body>
+</html>

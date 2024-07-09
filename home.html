@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Content with Buttons</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(orange, white, green);
+        }
+        table {
+            border-collapse: collapse;
+           
+        }
+        td {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            width: 30%;
+            border-radius: 6px;
+            border: 1px solid white;
+            background: rgb(161, 197, 161);
+            cursor: pointer;
+            
+        }
+        button:hover{
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="3">
+                <h1>First need to fill basic information</h1>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="basic_info.html"><button>Basic Info</button></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>KYC Verify</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button>Get Loan</button>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

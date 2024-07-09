@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Verification Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(orange, white, green);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(rgb(142, 142, 223), orange, grey);
+}
+
+.card-title {
+    margin-bottom: 20px;
+}
+
+.table-borderless td, .table-borderless th {
+    border: 0;
+}
+
+.form-check-input {
+    margin-top: 0.3rem;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-center"><u>KYC Verification Page</u></h2>
+                        <form id="kyc-form">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td class="text-left align-middle"><label for="pan-card">Upload PAN Card Image *</label></td>
+                                    <td><input type="file" accept="image/jpeg, image/png, image/gif" class="form-control-file" id="pan-card" required /></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="first-name">First Name *</label></td>
+                                    <td><input type="text" class="form-control" id="first-name" placeholder="First Name" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="middle-name">Middle Name *</label></td>
+                                    <td><input type="text" class="form-control" id="middle-name" placeholder="Middle Name" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="surname">Surname *</label></td>
+                                    <td><input type="text" class="form-control" id="surname" placeholder="Surname" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="pancard-number">Pancard Number *</label></td>
+                                    <td><input type="text" class="form-control" id="pancard-number" maxlength="10" minlength="10" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" placeholder="xxx-xxx-xxx" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="dob">Date of Birth *</label></td>
+                                    <td><input type="date" class="form-control" id="dob" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="gender">Gender *</label></td>
+                                    <td>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                                            <label class="form-check-label" for="male">Male</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                                            <label class="form-check-label" for="female">Female</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="prefer-not-to-say" value="PreferNotToSay">
+                                            <label class="form-check-label" for="prefer-not-to-say">Prefer (Not to say)</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><button type="submit" style="width: auto; margin: auto;" class="btn btn-success btn-block mt-3">Submit</button></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    document.getElementById('kyc-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const panCard = document.getElementById('pan-card').files[0];
+    const firstName = document.getElementById('first-name').value;
+    const middleName = document.getElementById('middle-name').value;
+    const surname = document.getElementById('surname').value;
+    const pancardNumber = document.getElementById('pancard-number').value;
+    const dob = document.getElementById('dob').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    window.location.href="loan.html";
+});
+
+    </script>
+</body>
+</html>

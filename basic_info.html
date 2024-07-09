@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Info Form</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    background-image: linear-gradient(orange, white, green);
+}
+
+.card {
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12%;
+    background-image: linear-gradient(rgb(142, 142, 223), orange, grey);
+}
+
+.card-title {
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.table-borderless td, .table-borderless th {
+    border: 0;
+}
+
+.form-check-input {
+    margin-top: 0.3rem;
+}
+.button{
+    width: fit-content;
+    margin: auto;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-center">Basic Info</h2>
+                        <form id="basic-info-form">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td class="text-left align-middle"><label for="name">Name *</label></td>
+                                    <td><input type="text" class="form-control" id="name" placeholder="Enter your Name" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="marital-status">Marital Status</label></td>
+                                    <td>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="maritalStatus" id="married" value="Married" required>
+                                            <label class="form-check-label" for="married">Married</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="maritalStatus" id="unmarried" value="Unmarried">
+                                            <label class="form-check-label" for="unmarried">Unmarried</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="education-level">Education Level *</label></td>
+                                    <td><input type="text" class="form-control" id="education-level" placeholder="Bachelor of Technology" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="street-address">Street Address *</label></td>
+                                    <td><textarea class="form-control" id="street-address" rows="2" placeholder="Required example textarea" required></textarea></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgb(235, 229, 229);">
+                                    <td class="text-left align-middle"><label for="years-residency">Years of Residency *</label></td>
+                                    <td><input type="number" class="form-control" id="years-residency" placeholder="5" required></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><h3 class="mt-4">Employment Details:</h3></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="years-working">Years of Working *</label></td>
+                                    <td><input type="number" class="form-control" id="years-working" placeholder="2" required></td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid rgb(235, 229, 229);">
+                                    <td class="text-left align-middle"><label for="job-profession">Job / Profession *</label></td>
+                                    <td><input type="text" class="form-control" id="job-profession" placeholder="Profession Name" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="current-address">Current Address *</label></td>
+                                    <td><input type="text" class="form-control" id="current-address" placeholder="Required example textarea" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="company-name">Company Name *</label></td>
+                                    <td><input type="text" class="form-control" id="company-name" placeholder="CYE Technology PVT Limited" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="company-contact">Company Contact *</label></td>
+                                    <td><input type="tel" minlength="10" maxlength="10" pattern="[0-9]{10}" class="form-control" id="company-contact" placeholder="xxxxx - xxxxx" required></td>
+                                </tr>
+                                <tr>
+                                    
+                                    <td colspan="2"><div class="button"><button type="submit" class="btn btn-success btn-block mt-3">Submit</button></div></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    document.getElementById('basic-info-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const maritalStatus = document.querySelector('input[name="maritalStatus"]:checked').value;
+    const educationLevel = document.getElementById('education-level').value;
+    const streetAddress = document.getElementById('street-address').value;
+    const yearsResidency = document.getElementById('years-residency').value;
+    const yearsWorking = document.getElementById('years-working').value;
+    const jobProfession = document.getElementById('job-profession').value;
+    const currentAddress = document.getElementById('current-address').value;
+    const companyName = document.getElementById('company-name').value;
+    const companyContact = document.getElementById('company-contact').value;
+
+    window.location.href="kyc.html";
+});
+
+    </script>
+</body>
+</html>

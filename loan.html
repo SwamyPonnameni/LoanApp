@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Loan</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(orange, white, green);
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(rgb(142, 142, 223), orange, grey);
+}
+
+.card-title {
+    margin-bottom: 20px;
+}
+
+.table-borderless td, .table-borderless th {
+    border: 0;
+}
+
+.form-check-input {
+    margin-top: 0.3rem;
+}
+
+.button{
+    width: fit-content;
+    margin: auto;
+    
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <h2 class="card-title text-center"><u>Get Loan</u></h2>
+                        <form id="loan-form">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td class="text-left align-middle"><label for="bank-name">Withdrawal Bank Name*</label></td>
+                                    <td><input type="text" class="form-control" id="bank-name" placeholder="Enter your Bank Name" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="ifsc-code">IFSC Code*</label></td>
+                                    <td><input type="text" class="form-control" id="ifsc-code" minlength="11" maxlength="11" pattern="[A-Z]{4}0[0-9A-Z]{6}" placeholder="Enter IFSC code" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="upi-account">UPI Account*</label></td>
+                                    <td><input type="text" class="form-control" id="upi-account" minlength="11" pattern="[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}" placeholder="Enter UPI" required></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left align-middle"><label for="email">Email*</label></td>
+                                    <td><input type="email" class="form-control" id="email" placeholder="email@cye.in" required></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><div class="button"><button type="submit" class="btn btn-success btn-block mt-3">Confirm</button></div></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+    document.getElementById('loan-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const bankName = document.getElementById('bank-name').value;
+    const ifscCode = document.getElementById('ifsc-code').value;
+    const upiAccount = document.getElementById('upi-account').value;
+    const email = document.getElementById('email').value;
+
+    alert('Congratulations your loan amount of xx-xx has been sanctioned!');
+});
+
+    </script>
+</body>
+</html>
